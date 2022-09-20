@@ -58,5 +58,5 @@ deploy live:
     script:
         - npm install
         - npm run build
-        - php deployer deploy stage.dieci.ch --revision="$CI_COMMIT_SHA" -v
+        - php deployer deploy host --revision="$CI_COMMIT_SHA" -v
 ```
