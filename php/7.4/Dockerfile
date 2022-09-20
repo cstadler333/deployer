@@ -6,6 +6,7 @@ ARG VCS_REF
 LABEL maintainer="Christopher Stadler <cstadler@smthdiff.com>" \
   PHP="7.4" \
   NODE="16" \
+  DEPLOYER="7.0" \
   org.label-schema.name="cstadler333/deployer" \
   org.label-schema.description="Docker image with PHP, Deployer and Node" \
   org.label-schema.build-date=$BUILD_DATE \
@@ -23,7 +24,7 @@ RUN adduser --disabled-password $IMAGE_USER \
   && chown -R $IMAGE_USER:$IMAGE_USER /var/www $HOME \
   && echo "$IMAGE_USER  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers
 
-COPY --from=pipelinecomponents/deployer /app/vendor /usr/local/lib/vendor
+COPY --from=pipelinecomponents/deployer:edge /app/vendor /usr/local/lib/vendor
 COPY --from=node:16 /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=node:16 /usr/local/bin/node /usr/local/bin/node
 RUN cd /usr/local/bin \

@@ -3,7 +3,7 @@
 .gitignore
 .gitlab-ci.yml
 .idea
-gitlab-ci-pipeline-php.png
+deployer.png
 .pre-commit-config.yaml
 LICENSE
 Makefile
